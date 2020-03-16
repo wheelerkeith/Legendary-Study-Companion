@@ -1,0 +1,29 @@
+ul {
+    margin: 0;
+    padding: 0;
+    border: 1px solid gray;
+    border-radius: .5em;
+    width: 200px;
+}
+
+li {
+    padding: .5em;
+    list-style: none;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+li:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+}
+
+li h5 {
+    display: inline;
+    margin-left: 1em;
+}
+
+h4 {
+    margin-top: 1em;
+}
