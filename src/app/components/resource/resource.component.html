@@ -1,0 +1,10 @@
+<div class="resource-container">
+    <a class="link-title" href="{{ resource_link }}">{{ resource_name }}</a>
+    <div class="resource-right">
+        <div class="likes">
+            <h4 class="like-count">{{ like_count }} Likes</h4>
+            <fa-icon [icon]="icon" class="star-icon" (mouseenter)="likeEnter()" (mouseleave)="likeLeave()" (click)="likeResource()"></fa-icon>
+        </div>
+        <button class="btn btn-success">Save</button>
+    </div>
+</div>
