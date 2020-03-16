@@ -1,0 +1,18 @@
+nav {
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+app-search {
+    flex-grow: 6;
+}
+
+app-menu {
+    flex-grow: 1;
+}
+
+.search-results-container {
+    display: flex;
+    justify-content: space-evenly;
+}
