@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ResourceComponent } from './components/resource/resource.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FiltersComponent } from './components/filters/filters.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,12 @@ import { FiltersComponent } from './components/filters/filters.component';
     SearchComponent,
     MenuComponent,
     ResourceComponent,
-    FiltersComponent
+    FiltersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule
