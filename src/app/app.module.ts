@@ -11,8 +11,8 @@ import { ResourceComponent } from './components/resource/resource.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FiltersComponent } from './components/filters/filters.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { MystudysetsComponent } from './components/mystudysets/mystudysets.component';
 import { MycontentComponent } from './components/mycontent/mycontent.component';
+import { ModcontentComponent } from './components/modcontent/modcontent.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { MycontentComponent } from './components/mycontent/mycontent.component';
     ResourceComponent,
     FiltersComponent,
     ProfileComponent,
-    MystudysetsComponent,
-    MycontentComponent
+    MycontentComponent,
+    ModcontentComponent
   ],
   imports: [
     BrowserModule,
