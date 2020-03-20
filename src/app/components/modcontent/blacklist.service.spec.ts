@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MystudysetsService } from './mystudysets.service';
+import { BlacklistService } from './blacklist.service';
 
-describe('MystudysetsService', () => {
-  let service: MystudysetsService;
+describe('BlacklistService', () => {
+  let service: BlacklistService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MystudysetsService);
+    service = TestBed.inject(BlacklistService);
   });
 
   it('should be created', () => {
