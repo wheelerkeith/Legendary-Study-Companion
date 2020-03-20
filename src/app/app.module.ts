@@ -11,9 +11,12 @@ import { ResourceComponent } from './components/resource/resource.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FiltersComponent } from './components/filters/filters.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { MystudysetsComponent } from './components/mystudysets/mystudysets.component';
 import { MycontentComponent } from './components/mycontent/mycontent.component';
+<<<<<<< HEAD
 import { LoginComponent } from './components/login/login.component';
+=======
+import { ModcontentComponent } from './components/modcontent/modcontent.component';
+>>>>>>> added a bit more to the my content componenet, started on the moderator component
 
 @NgModule({
   declarations: [
@@ -23,9 +26,10 @@ import { LoginComponent } from './components/login/login.component';
     ResourceComponent,
     FiltersComponent,
     ProfileComponent,
-    MystudysetsComponent,
+    LoginComponent,
     MycontentComponent,
-    LoginComponent
+    ModcontentComponent
+
   ],
   imports: [
     BrowserModule,
