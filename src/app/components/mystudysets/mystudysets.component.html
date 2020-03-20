@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="study-set-tab" data-toggle="tab" href="#study-set" role="tab" aria-controls="study-set" aria-selected="true">Study Sets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="liked-resources-tab" data-toggle="tab" href="#liked-resources" role="tab" aria-controls="liked-resources" aria-selected="false">Liked Resources</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="study-set" role="tabpanel" aria-labelledby="study-set-tab">
+            <div class="container">
+                <br>
+                <h5 class="card-title">My study sets:</h5>
+                <h6 class="card-subtitle mb-2 text-muted">click on one to see more details...</h6>
+                <div class="accordion" id="accordionStudySets">
+                    <div class="card-header" id="heading1">
+                        <h2 class="mb-0">
+                            <button id="my-study-set-1" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                <span><strong>Intro to Java Study Set #001</strong></span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionStudySets">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">http://www.google.com</li>
+                                <li class="list-group-item">http://www.wikipedia.com</li>
+                                <li class="list-group-item">http://www.wolfrapalpha.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-header" id="heading2">
+                        <h2 class="mb-0">
+                            <button id="my-study-set-2" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                Advanced C++ Study Set #001
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionStudySets">
+                        <div class="card-body">
+                            <div id="my-study-set-2-desc">List resources here...</div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="liked-resources" role="tabpanel" aria-labelledby="liked-resources-tab">
+            <div class="container">
+                <br>
+                <h5 class="card-title">My liked resources:</h5>
+                <h6 class="card-subtitle mb-2 text-muted">click on one to see more details...</h6>
+                <div class="accordion" id="accordionLikedResources">
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        
