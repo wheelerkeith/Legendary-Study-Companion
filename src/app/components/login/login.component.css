@@ -1,0 +1,38 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right bottom, rgba(179, 179, 179, 0.5), rgba(255, 255, 255, 0.5)),url(../../../assets/images/login.jpg);
+    background-size: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+    width: 25vw;
+    background-color: rgb(255, 255, 255, .6);
+    box-shadow: 5px 5px 10px grey;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 40%;
+    align-self: center;
+    margin-bottom: 15px;
+}
+
+a {
+    text-align: center;
+    color: grey;
+}
+
+.input-field {
+    margin: 5px !important;
+}
