@@ -10,6 +10,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ResourceComponent } from './components/resource/resource.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FiltersComponent } from './components/filters/filters.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { MystudysetsComponent } from './components/mystudysets/mystudysets.component';
+import { MycontentComponent } from './components/mycontent/mycontent.component';
 import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
@@ -19,6 +22,9 @@ import { LoginComponent } from './components/login/login.component';
     MenuComponent,
     ResourceComponent,
     FiltersComponent,
+    ProfileComponent,
+    MystudysetsComponent,
+    MycontentComponent,
     LoginComponent
   ],
   imports: [
