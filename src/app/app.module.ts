@@ -13,6 +13,7 @@ import { FiltersComponent } from './components/filters/filters.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MystudysetsComponent } from './components/mystudysets/mystudysets.component';
 import { MycontentComponent } from './components/mycontent/mycontent.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MycontentComponent } from './components/mycontent/mycontent.component';
     FiltersComponent,
     ProfileComponent,
     MystudysetsComponent,
-    MycontentComponent
+    MycontentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
