@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { Profile } from '../profile/profile.service';
 
 const httpOptions = {
   headers: new HttpHeaders({

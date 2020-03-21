@@ -15,8 +15,18 @@
                 <br>
                 <h5 class="card-title">Blacklists:</h5>
                 <h6 class="card-subtitle mb-2 text-muted">pending blacklists:</h6>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>text binding here</strong> : text binding here</li>
+                <ul class="list-group list-group-flush" id="blacklist-ul-element">
+                    <div *ngFor="let entry of blacklists" id="blacklist-div-{{entry.resource.resourceId}}-{{entry.subject.id}}">
+                        <li *ngIf="entry.status == 'pending'" class="list-group-item">
+                            <div class="row col-">
+                                <div class="col-12 col-md-9"><strong>{{entry.subject.name}}</strong> : {{entry.resource.url}}</div>
+                                <div class="col-6 col-md-3">
+                                    <button id="deny-pendding-btn" type="button" class="btn btn-light" (click)="updateStatus(entry.resource.resourceId, entry.subject.id, 'Denied')">Deny</button>
+                                    <button id="approve-pendding-btn" type="button" class="btn btn-success" (click)="updateStatus(entry.resource.resourceId, entry.subject.id, 'Approved')">Approve</button>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
                 </ul>
                 <br>
             </div>
@@ -26,8 +36,15 @@
                 <br>
                 <h5 class="card-title">processed blacklists:</h5>
                 <h6 class="card-subtitle mb-2 text-muted">history of blacklists that have been processed...</h6>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>text binding here</strong> : text binding here</li>
+                <ul class="list-group list-group-flush" id="processed-blacklist-ul-element">
+                    <div *ngFor="let entry of blacklists">
+                        <li *ngIf="entry.status != 'pending'" class="list-group-item">
+                            <div class="row">
+                                <div class="col-8"><strong>{{entry.subject.name}}</strong> : {{entry.resource.url}}</div>
+                                <div class="col-2">{{entry.status}}</div>
+                            </div>
+                        </li>
+                    </div>
                 </ul>
                 <br>
             </div>
