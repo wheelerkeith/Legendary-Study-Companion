@@ -3,8 +3,8 @@
       Hello, Profile
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Profile</a>
-      <a class="dropdown-item" href="#">Study Sets</a>
+      <a class="dropdown-item" routerLink='profile'>Profile</a>
+      <a *ngIf="true" class="dropdown-item" routerLink='moderate'>Moderate</a>
       <a class="dropdown-item" [ngStyle]="{'color': 'red'}" href="#">Logout</a>
     </div>
   </div>

@@ -14,6 +14,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MycontentComponent } from './components/mycontent/mycontent.component';
 import { LoginComponent } from './components/login/login.component';
 import { ModcontentComponent } from './components/modcontent/modcontent.component';
+import { ProfileViewComponent } from './components/profile-view/profile-view.component';
+import { SearchViewComponent } from './components/search-view/search-view.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ModcontentComponent } from './components/modcontent/modcontent.componen
     LoginComponent,
     MycontentComponent,
     ModcontentComponent,
+    ProfileViewComponent,
+    SearchViewComponent
 
   ],
   imports: [
