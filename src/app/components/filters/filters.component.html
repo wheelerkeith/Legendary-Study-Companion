@@ -1,17 +1,15 @@
-<h3>Filters</h3>
-<h4>Sources</h4>
-<ul>
-    <li *ngFor="let source of sources" (click)="source.checked = !source.checked">
-        <input type="checkbox" [(checked)]="source.checked">
-        <h5>{{source.name}}</h5>
-        <br>
-    </li>
-</ul>
-<h4>Content Type</h4>
-<ul>
-    <li *ngFor="let type of con_types" (click)="type.checked = !type.checked">
-        <input type="checkbox" [(checked)]="type.checked">
-        <h5>{{type.name}}</h5>
-        <br>
-    </li>
-</ul>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Filters</h5>
+        <h6 class="card-subtitle mt-3 mb-2">Sources</h6>
+        <div *ngFor="let source of sources" class="custom-control custom-checkbox mb-1">
+            <input type="checkbox" class="custom-control-input" id="customControl{{source.name}}" [(checked)]="source.checked">
+            <label class="custom-control-label" for="customControl{{source.name}}">{{source.name}}</label>
+        </div>
+        <h6 class="card-subtitle mt-3 mb-2">Content Type</h6>
+        <div *ngFor="let type of con_types" class="custom-control custom-checkbox mb-1">
+            <input type="checkbox" class="custom-control-input" id="customControl{{type.name}}" [(checked)]="type.checked">
+            <label class="custom-control-label" for="customControl{{type.name}}">{{type.name}}</label>
+        </div>
+    </div>
+</div>
