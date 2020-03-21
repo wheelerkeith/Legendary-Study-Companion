@@ -25,7 +25,7 @@ import { ModcontentComponent } from './components/modcontent/modcontent.componen
     ProfileComponent,
     LoginComponent,
     MycontentComponent,
-    ModcontentComponent,
+    ModcontentComponent
 
   ],
   imports: [

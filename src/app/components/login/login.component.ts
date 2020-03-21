@@ -1,5 +1,6 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-import { Login } from './login.service';
+import { Component, OnInit } from '@angular/core';
+import { Login, LoginService, UserToken } from './login.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +9,28 @@ import { Login } from './login.service';
 })
 
 export class LoginComponent implements OnInit {
-
   login: Login;
+  token: UserToken;
+  resp: HttpResponse<any>;
+  headers: string[];
 
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.getLoginInfo();
   }
 
-  getLoginInfo() {
-    this.loginService.setLoginInfo().subscribe((data: Login) => this.login = {
-      username: data['username'],
-      password: data['password']
+  attemptLogin(username: string, password: string) {
+    
+    this.login = {
+      userName: username,
+      email: username,
+      password: password
+    };
+
+    console.log("inside attempt login");
+    this.loginService.postLoginInfo(this.login).subscribe(resp => {
+      console.log(resp.headers.get('Authorization'));
+      sessionStorage.setItem("token", resp.headers.get('Authorization'));
     });
   }
-
 }

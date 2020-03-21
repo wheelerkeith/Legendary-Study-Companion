@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -11,8 +11,14 @@ const httpOptions = {
 };
 
 export interface Login {
-    username: string;
+    userName: string;
+    email: string;
     password: string;
+}
+
+export interface UserToken {
+    userId: any;
+    role: any;
 }
 
 @Injectable({
@@ -22,11 +28,10 @@ export class LoginService {
 
     constructor(private http: HttpClient) {}
 
+    postLoginUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/login`;
+
     // Set the login info
-    setLoginInfo(login: Login) {
-        getLoginInfoUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/user/${login.username}`;
-        return this.http.get<Login>(this.getLoginInfoUrl);
+    postLoginInfo(login: Login): Observable<HttpResponse<any>> {
+        return this.http.post<any>(this.postLoginUrl, login, { headers: httpOptions.headers, observe: 'response'});
     }
-
-
 }

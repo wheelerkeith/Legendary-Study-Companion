@@ -40,14 +40,15 @@ export class MycontentService {
 
   constructor(private http:HttpClient) { }
 
-
-  getMyContentUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/user/2`;
   studySetPOSTUrl = ``;
   studySetPUTUrl = ``;
   studySetDELETE = ``;
 
   // GET - get all user content
   getMyContent() {
-    return this.http.get<MyContent>(this.getMyContentUrl);
+    let tokenArray = sessionStorage.token.split(':',2);
+    httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
+    let getMyContentUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/user/${tokenArray[0]}`;
+    return this.http.get<MyContent>(getMyContentUrl, httpOptions);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile, ProfileService } from './profile.service';
+import { Profile, ProfileService, httpOptions } from './profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   }
 
   populateUserInfo() {
+
     console.log("inside populate info");
     this.profileService.getUserInfo().subscribe((data: Profile) => this.profile = {
       fullName: data['fullName'],
