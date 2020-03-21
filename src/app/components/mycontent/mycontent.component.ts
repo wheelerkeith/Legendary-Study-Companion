@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MycontentService, MyContent, StudySet, Resource } from './mycontent.service';
+import { MycontentService, MyContent } from './mycontent.service';
 
 @Component({
   selector: 'app-mycontent',
@@ -23,7 +23,8 @@ export class MycontentComponent implements OnInit {
         userId: data["userId"],
         studySets: data["studySets"],
         likedResources: data["likedResources"]
-    }});
+      }
+    });
   }
 
 }
