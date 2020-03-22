@@ -18,6 +18,8 @@ export interface Resource {
   resourceId: any;
   url: string;
   subject: Subject;
+  title: string;
+  source: string;
 
 }
 
@@ -44,7 +46,7 @@ export class MycontentService {
   studySetPUTUrl = ``;
   studySetDELETE = ``;
 
-  // GET - get all user content
+  // GET - get all content for user
   getMyContent() {
     let tokenArray = sessionStorage.token.split(':',2);
     httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
