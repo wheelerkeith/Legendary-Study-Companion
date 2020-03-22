@@ -1,24 +1,31 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SearchViewComponent } from './components/search-view/search-view.component'
-import { ProfileViewComponent } from './components/profile-view/profile-view.component'
-import { ModcontentComponent } from './components/modcontent/modcontent.component'
+import { LoginComponent } from './components/login/login.component';
+import { AppViewComponent } from './components/app-view/app-view.component';
+import { SearchViewComponent } from './components/search-view/search-view.component';
+import { ProfileViewComponent } from './components/profile-view/profile-view.component';
+import { ModcontentComponent } from './components/modcontent/modcontent.component';
 
 
 const routes: Routes = [ {
 
-  path: 'search',
-  component: SearchViewComponent
-},{
+  path: '',
+  component: LoginComponent
+}, {
 
-  path: 'profile',
-  component: ProfileViewComponent
-},{
-  path: 'moderate',
-  component: ModcontentComponent
-}
-
-];
+  path: 'app',
+  component: AppViewComponent,
+  children: [{
+    path: 'search',
+    component: SearchViewComponent
+  },{
+    path: 'profile',
+    component: ProfileViewComponent
+  },{
+    path: 'moderate',
+    component: ModcontentComponent
+  }]
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
