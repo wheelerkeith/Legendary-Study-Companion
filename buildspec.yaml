@@ -4,7 +4,7 @@ env:
   variables:
     S3_BUCKET: "arn:aws:s3:us-east-2:048271701836:accesspoint/legendarystudycompanion"
     APP_NAME: "Legendary-Study-Companion"
-    BUILD_ENV: "ng build --prod --aot"
+    BUILD_ENV: "prod --aot"
 
 phases:
   install:
