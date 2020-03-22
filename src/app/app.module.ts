@@ -18,6 +18,7 @@ import { ProfileViewComponent } from './components/profile-view/profile-view.com
 import { SearchViewComponent } from './components/search-view/search-view.component';
 import { ResourceListComponent } from './components/resource-list/resource-list.component';
 import { AppViewComponent } from './components/app-view/app-view.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { AppViewComponent } from './components/app-view/app-view.component';
     ProfileViewComponent,
     SearchViewComponent,
     ResourceListComponent,
-    AppViewComponent
+    AppViewComponent,
+    SignupComponent
 
   ],
   imports: [
