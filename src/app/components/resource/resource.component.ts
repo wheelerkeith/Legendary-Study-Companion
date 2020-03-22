@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
+import { Resource } from 'src/app/services/resource.service';
 
 @Component({
   selector: 'app-resource',
@@ -9,8 +10,7 @@ import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class ResourceComponent implements OnInit {
 
-  resource_link: String;
-  resource_name: String;
+  @Input() resource: Resource;
   liked: Boolean = false;
   like_count: Number = 0;
 
@@ -20,7 +20,6 @@ export class ResourceComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.resource_name = "Test Resource";
     this.icon = this.liked ? solidStar : faStar;
   }
 

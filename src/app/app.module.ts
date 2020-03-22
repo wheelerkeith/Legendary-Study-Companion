@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ModcontentComponent } from './components/modcontent/modcontent.component';
 import { ProfileViewComponent } from './components/profile-view/profile-view.component';
 import { SearchViewComponent } from './components/search-view/search-view.component';
+import { ResourceListComponent } from './components/resource-list/resource-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SearchViewComponent } from './components/search-view/search-view.compon
     MycontentComponent,
     ModcontentComponent,
     ProfileViewComponent,
-    SearchViewComponent
+    SearchViewComponent,
+    ResourceListComponent
 
   ],
   imports: [
