@@ -14,13 +14,13 @@
             <div class="container">
                 <br>
                 <h5 class="card-title">My study sets:</h5>
-                <h6 class="card-subtitle mb-2 text-muted">click on one to see resources</h6>
+                <h6 class="card-subtitle mb-2 text-muted">click on one to see the resources</h6>
                 <div *ngIf="myContent" class="accordion" id="accordionStudySets">
                     <div *ngFor="let subject of likedSubjects">
                         <button id="my-study-set-{{subject}}" class="mybutton btn-block" type="button" data-toggle="collapse" attr.data-target="#collapse{{subject}}" aria-expanded="false" attr.aria-controls="collapse{{subject}}">
                             <div class="card-header" id="heading{{subject}}" style="padding: 25px;">
-                                <h6 class="mb-0"> 
-                                        <span><strong>{{subject}}</strong></span>
+                                <h6 class="mb-0">
+                                        <strong>{{subject}}</strong>
                                 </h6>
                             </div>
                         </button> <!--https://stackoverflow.com/questions/39161088/cant-bind-to-aria-valuenow-since-it-isnt-a-known-property-of-div-->
@@ -28,7 +28,16 @@
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
                                     <li *ngFor="let resource of matchSubject(subject)" class="list-group-item id={{resource.resourceId}}">
-                                        <div *ngIf="subject == resource.subject.name" ><a href="{{resource.url}}" target="_blank">{{resource.title}}</a></div>
+                                        <div *ngIf="subject == resource.subject.name" >
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <strong>{{resource.source}}</strong>
+                                                </div>
+                                                <div class="col=10">
+                                                    <a href="{{resource.url}}" target="_blank">{{resource.title}}</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -45,9 +54,18 @@
             <div class="container">
                 <br>
                 <h5 class="card-title">My liked resources:</h5>
-                <h6 class="card-subtitle mb-2 text-muted">click on title to open resource</h6>
+                <h6 class="card-subtitle mb-2 text-muted">click to open the resource</h6>
                     <ul *ngIf="myContent" class="list-group list-group-flush">
-                        <li *ngFor="let resource of myContent.likedResources" class="list-group-item id={{resource.resourceId}}"><strong>{{resource.subject.name}}</strong> : <a href="{{resource.url}}" target="_blank">{{resource.title}}</a></li>
+                        <li *ngFor="let resource of myContent.likedResources" class="list-group-item id={{resource.resourceId}}">
+                            <div class="row">
+                                <div class="col-2">
+                                    <strong>{{resource.source}}</strong>
+                                </div>
+                                <div class="col-10">
+                                    {{resource.subject.name}} : <a href="{{resource.url}}" target="_blank">{{resource.title}}</a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                     <div *ngIf="myContent">
                         <div *ngIf="myContent.likedResources.length == 0"> you have not liked any resources :[</div>
