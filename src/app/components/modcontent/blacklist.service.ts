@@ -4,7 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Resource, Subject } from '../mycontent/mycontent.service';
 import { Observable } from 'rxjs';
 
-const httOprtions = {
+const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'auth-key'         // we need to flesh this out
@@ -40,11 +40,13 @@ export class BlacklistService {
 
   // GET - get all blacklists
   getAllBlacklists (): Observable<Blacklist[]> {
-    return this.http.get<Blacklist[]>(this.getAllBlacklistsUrl);
+    httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
+    return this.http.get<Blacklist[]>(this.getAllBlacklistsUrl, httpOptions);
   }
 
   // PUT - update the status of the blacklist
   putUpdateStatus (urlSuffix: any): Observable<Blacklist> {
-    return this.http.put<Blacklist>(this.putUpdateStatusUrl+urlSuffix, httOprtions);
+    httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
+    return this.http.put<Blacklist>(this.putUpdateStatusUrl+urlSuffix, httpOptions);
   }
 }

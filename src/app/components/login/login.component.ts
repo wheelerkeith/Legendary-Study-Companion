@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.loginService.postLoginInfo(this.login).subscribe(resp => {
       console.log(resp.headers.get('Authorization'));
       sessionStorage.setItem("token", resp.headers.get('Authorization'));
-      window.location.href="http://localhost:4200/search";
+      window.location.href="http://localhost:4200/app/search";
     });
   }
 }

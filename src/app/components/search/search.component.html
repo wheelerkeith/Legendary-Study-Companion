@@ -1,2 +1,4 @@
-<input  [(ngModel)]="searchQuery" type="text">
-<button (click)="search()" class="btn" routerLink='search'>Search</button>
+<div class="row">
+    <div class="col-3"><input class="form-control mr-sm-2 mt-sm-2" [(ngModel)]="searchQuery" type="search" placeholder="Search" aria-label="Search"></div>
+    <div class="col-2"><button (click)="search()" class="btn btn-outline-secondary my my-sm-0 mt-sm-2" routerLink='search'>Search</button></div>
+</div>
