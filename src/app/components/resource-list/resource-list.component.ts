@@ -8,7 +8,7 @@ import { Resource, ResourceService, httpOptions } from 'src/app/services/resourc
 })
 export class ResourceListComponent implements OnInit {
 
-  private resources: Resource[];
+  resources: Resource[];
 
   constructor(private resourceService: ResourceService) { }
 
