@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     S3_BUCKET: "arn:aws:s3:us-east-2:048271701836:accesspoint/legendarystudycompanion"
-    APP_NAME: "index.html"
+    APP_NAME: "Legendary-Study-Companion"
     BUILD_ENV: "prod"
 
 phases:
