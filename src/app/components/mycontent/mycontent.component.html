@@ -14,28 +14,29 @@
             <div class="container">
                 <br>
                 <h5 class="card-title">My study sets:</h5>
-                <h6 class="card-subtitle mb-2 text-muted">click on one to see more details...</h6>
+                <h6 class="card-subtitle mb-2 text-muted">click on one to see resources</h6>
                 <div *ngIf="myContent" class="accordion" id="accordionStudySets">
-                    <div *ngFor ="let studySet of myContent.studySets">
-                        <button id="my-study-set-{{studySet.id}}" class="mybutton btn-block" type="button" data-toggle="collapse" attr.data-target="#collapse{{studySet.id}}" aria-expanded="false" attr.aria-controls="collapse{{studySet.id}}">
-                            <div class="card-header" id="heading{{studySet.id}}" style="padding: 25px;">
-                                <h6 class="mb-0"> <!--https://stackoverflow.com/questions/39161088/cant-bind-to-aria-valuenow-since-it-isnt-a-known-property-of-div-->
-                                        <span><strong>{{studySet.name}}</strong></span>
+                    <div *ngFor="let subject of likedSubjects">
+                        <button id="my-study-set-{{subject}}" class="mybutton btn-block" type="button" data-toggle="collapse" attr.data-target="#collapse{{subject}}" aria-expanded="false" attr.aria-controls="collapse{{subject}}">
+                            <div class="card-header" id="heading{{subject}}" style="padding: 25px;">
+                                <h6 class="mb-0"> 
+                                        <span><strong>{{subject}}</strong></span>
                                 </h6>
                             </div>
-                        </button>
-                        <div id="collapse{{studySet.id}}" class="collapse" attr.aria-labelledby="heading{{studySet.id}}" data-parent="#accordionStudySets">
+                        </button> <!--https://stackoverflow.com/questions/39161088/cant-bind-to-aria-valuenow-since-it-isnt-a-known-property-of-div-->
+                        <div id="collapse{{subject}}" class="collapse" attr.aria-labelledby="heading{{subject}}" data-parent="#accordionStudySets">
                             <div class="card-body">
-                                <ul *ngIf="studySet.resourceList" class="list-group list-group-flush">
-                                    <li *ngFor="let resource of studySet.resourceList" class="list-group-item id={{resource.resourceId}}">{{resource.url}}</li>
+                                <ul class="list-group list-group-flush">
+                                    <li *ngFor="let resource of matchSubject(subject)" class="list-group-item id={{resource.resourceId}}">
+                                        <div *ngIf="subject == resource.subject.name" ><a href="{{resource.url}}" target="_blank">{{resource.title}}</a></div>
+                                    </li>
                                 </ul>
-                                <div *ngIf="studySet.resourceList == false">you have no resources in this study set :(</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div *ngIf="myContent">
-                    <div *ngIf="myContent.studySets.length == 0"> you have no study sets D:</div>
+                    <div *ngIf="likedSubjects.length == 0"> you have no study sets D:</div>
                 </div>
                 <br>
             </div>
@@ -44,9 +45,9 @@
             <div class="container">
                 <br>
                 <h5 class="card-title">My liked resources:</h5>
-                <h6 class="card-subtitle mb-2 text-muted">click on one to see more details...</h6>
+                <h6 class="card-subtitle mb-2 text-muted">click on title to open resource</h6>
                     <ul *ngIf="myContent" class="list-group list-group-flush">
-                        <li *ngFor="let resource of myContent.likedResources" class="list-group-item id={{resource.resourceId}}"><strong>{{resource.subject.name}}</strong> : {{resource.url}}</li>
+                        <li *ngFor="let resource of myContent.likedResources" class="list-group-item id={{resource.resourceId}}"><strong>{{resource.subject.name}}</strong> : <a href="{{resource.url}}" target="_blank">{{resource.title}}</a></li>
                     </ul>
                     <div *ngIf="myContent">
                         <div *ngIf="myContent.likedResources.length == 0"> you have not liked any resources :[</div>
@@ -56,3 +57,4 @@
         </div>
     </div>
 </div>
+

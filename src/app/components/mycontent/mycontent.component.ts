@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MycontentService, MyContent } from './mycontent.service';
+import { MycontentService, MyContent, Resource } from './mycontent.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-mycontent',
@@ -8,6 +9,7 @@ import { MycontentService, MyContent } from './mycontent.service';
 })
 export class MycontentComponent implements OnInit {
   myContent: MyContent;
+  likedSubjects: string[] = [];
 
 
   constructor(private myContentService: MycontentService) { }
@@ -22,9 +24,37 @@ export class MycontentComponent implements OnInit {
       this.myContent = {
         userId: data["userId"],
         studySets: data["studySets"],
-        likedResources: data["likedResources"]
+        likedResources: data["resourceList"]
       }
+
+      let count = 0;
+      let unique = true;
+
+      for(let resource of this.myContent.likedResources) {
+        for(let subject of this.likedSubjects) {
+          if(resource.subject.name == subject) {
+            unique = false;
+          }
+        }
+        if (unique) {
+          this.likedSubjects[count] = resource.subject.name;
+          count ++;
+        }
+        unique = true;
+      }
+
     });
+  }
+
+  matchSubject(name: string): Resource[] {
+    let subArray: Resource[] = [];
+
+    for(let resource of this.myContent.likedResources){
+      if(name == resource.subject.name) {
+        subArray.push(resource);
+      }
+    }
+    return subArray;
   }
 
 }

@@ -18,6 +18,8 @@ export interface Resource {
   resourceId: any;
   url: string;
   subject: Subject;
+  title: string;
+  source: string;
 
 }
 
