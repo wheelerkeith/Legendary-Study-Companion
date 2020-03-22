@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    S3_BUCKET: " http://legendarystudycompanion.s3-website.us-east-2.amazonaws.com"
+    S3_BUCKET: "arn:aws:s3:::legendarystudycompanion"
     APP_NAME: "index.html"
     BUILD_ENV: "prod"
 
