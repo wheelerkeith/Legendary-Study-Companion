@@ -33,6 +33,6 @@ export class LoginService {
 
     // Set the login info
     postLoginInfo(login: Login): Observable<HttpResponse<any>> {
-        return this.http.post<any>(this.postLoginUrl, login, { headers: httpOptions.headers, observe: 'response'});
+        return this.http.post<HttpResponse<any>>(this.postLoginUrl, login, { headers: httpOptions.headers, observe: 'response'});
     }
 }

@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
 
     // console.log("inside attempt login");
     this.loginService.postLoginInfo(this.login).subscribe(resp => {
-      console.log(resp.headers.get('Authorization'));
+      // console.log(resp);
+      // console.log(resp.headers.get('Authorization'));
       sessionStorage.setItem("token", resp.headers.get('Authorization'));
       this.router.navigate(['/app/search'], { relativeTo: this.rout});
     });
