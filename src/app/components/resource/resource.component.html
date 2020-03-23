@@ -3,8 +3,9 @@
     <div class="resource-right">
         <div class="likes">
             <h4 class="like-count">{{ resource.likeCount }} Likes</h4>
-            <fa-icon [icon]="icon" class="star-icon" (mouseenter)="likeEnter()" (mouseleave)="likeLeave()" (click)="likeResource()"></fa-icon>
+            <fa-icon [icon]="icon" class="star-icon"></fa-icon>
         </div>
         <button class="btn btn-success" (click)="saveResource()">Save</button>
+        <button class="btn btn-danger" (click)="flagResource()">Flag</button>
     </div>
 </div>

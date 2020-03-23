@@ -23,23 +23,14 @@ export class ResourceComponent implements OnInit {
     this.icon = solidStar;
   }
 
-  likeResource(): void {
-
-    //TODO: Backend implementation for liking a resource
-
-  }
-
   saveResource() {
-    
+    this.resourceService.postSavedResource(this.resource);
   }
 
-  likeEnter(): void {
-    this.icon = solidStar;
-  }
-
-  likeLeave(): void {
-    if (!this.liked)
-      this.icon = faStar;
+  flagResource() {
+    //TODO: Send resource to backend to add to blacklist table
+    //TODO: Change button to show that resource has been flagged
+    //  Maybe prompt user before flagging? Like "Are you sure you want to flag this resource? Y/N"
   }
 
 }
