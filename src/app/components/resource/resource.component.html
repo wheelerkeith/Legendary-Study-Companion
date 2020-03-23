@@ -5,7 +5,8 @@
             <h4 class="like-count">{{ resource.likeCount }} Likes</h4>
             <fa-icon [icon]="icon" class="star-icon"></fa-icon>
         </div>
-        <button class="btn btn-success" (click)="saveResource()">Save</button>
+        <button *ngIf="resource.saved" class="btn btn-success" (click)="saveResource()">Save</button>
+        <button *ngIf="!resource.saved" class="btn btn-success" (click)="unsaveResource()">Unsave</button>
         <button class="btn btn-danger" (click)="flagResource()">Flag</button>
     </div>
 </div>
