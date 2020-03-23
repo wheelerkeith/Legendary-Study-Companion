@@ -34,8 +34,8 @@ export class BlacklistService {
 
   constructor(private http:HttpClient) { }
 
-  getAllBlacklistsUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/blacklist`;
-  putUpdateStatusUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/blacklist/`;
+  getAllBlacklistsUrl = `http://ec2-3-21-237-82.us-east-2.compute.amazonaws.com:8090/LegendaryStudyCompanionBackend-0.0.1-SNAPSHOT/blacklist`;
+  putUpdateStatusUrl = `http://ec2-3-21-237-82.us-east-2.compute.amazonaws.com:8090/LegendaryStudyCompanionBackend-0.0.1-SNAPSHOT/blacklist/`;
 
 
   // GET - get all blacklists
