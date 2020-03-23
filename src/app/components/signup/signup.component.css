@@ -1,0 +1,11 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.right-card {
+    border-left: 10px solid #00a2ff;
+}

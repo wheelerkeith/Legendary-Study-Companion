@@ -5,12 +5,13 @@ import { AppViewComponent } from './components/app-view/app-view.component';
 import { SearchViewComponent } from './components/search-view/search-view.component';
 import { ProfileViewComponent } from './components/profile-view/profile-view.component';
 import { ModcontentComponent } from './components/modcontent/modcontent.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
 
 
 const routes: Routes = [ {
 
   path: '',
-  component: LoginComponent
+  component: LandingpageComponent
 }, {
 
   path: 'app',
