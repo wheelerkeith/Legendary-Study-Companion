@@ -19,8 +19,9 @@ export class ResourceListComponent implements OnInit {
 
   populateResources() {
     this.route.queryParamMap.subscribe(params=> {
-      this.resourceService.getSearchedResources(params.get("q")).subscribe((data: Resource[]) => {
-        this.resources = data;
+      var subscription = this.resourceService.getSearchedResources(params.get("q"), params.get("filters")).subscribe((data: Resource[]) => {
+        this.resourceService.resources = data;
+        subscription.unsubscribe();
       })
     }
     )

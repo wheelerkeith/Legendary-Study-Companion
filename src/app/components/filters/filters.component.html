@@ -3,13 +3,13 @@
         <h5 class="card-title">Filters</h5>
         <h6 class="card-subtitle mt-3 mb-2">Sources</h6>
         <div *ngFor="let source of sources" class="custom-control custom-checkbox mb-1">
-            <input type="checkbox" class="custom-control-input" id="customControl{{source.name}}" [(checked)]="source.checked">
+            <input (click)="filterSearch(source)" type="checkbox" class="custom-control-input" id="customControl{{source.name}}" [(checked)]="source.checked">
             <label class="custom-control-label" for="customControl{{source.name}}">{{source.name}}</label>
         </div>
-        <h6 class="card-subtitle mt-3 mb-2">Content Type</h6>
+        <!-- <h6 class="card-subtitle mt-3 mb-2">Content Type</h6>
         <div *ngFor="let type of con_types" class="custom-control custom-checkbox mb-1">
             <input type="checkbox" class="custom-control-input" id="customControl{{type.name}}" [(checked)]="type.checked">
             <label class="custom-control-label" for="customControl{{type.name}}">{{type.name}}</label>
-        </div>
+        </div> -->
     </div>
 </div>

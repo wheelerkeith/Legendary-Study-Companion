@@ -25,12 +25,13 @@ export interface Resource {
 })
 export class ResourceService {
 
+  resources: Resource[];
 
   constructor(private http: HttpClient, private config: HttpConfigService) { }
 
-  getSearchedResources(query: String) {
+  getSearchedResources(query: String, filters: String) {
     httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
-    let resourceQueryUrl = this.config.endpoint + `resource/?q=${query}`;
+    let resourceQueryUrl = this.config.endpoint + `resource/?q=${query}&filters=${filters}`;
     return this.http.get<Resource[]>(resourceQueryUrl, httpOptions);
   }
 

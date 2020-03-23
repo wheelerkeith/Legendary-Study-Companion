@@ -1,6 +1,6 @@
-<div *ngIf="resources == null">
+<div *ngIf="this.resourceService.resources == null">
     <h3>SEARCHING...</h3>
 </div>
-<div *ngIf="resources != null">
-    <app-resource *ngFor="let res of resources" [resource]="res"></app-resource>
+<div *ngIf="this.resourceService.resources != null">
+    <app-resource *ngFor="let res of this.resourceService.resources" [resource]="res"></app-resource>
 </div>
