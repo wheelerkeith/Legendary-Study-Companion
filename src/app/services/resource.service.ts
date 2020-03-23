@@ -13,8 +13,9 @@ export const httpOptions = {
 
 export interface Resource {
   title: String,
-  link: String,
-  // Likes: Number
+  url: String,
+  likeCount: Number,
+  source: String
 }
 
 @Injectable({
@@ -28,6 +29,13 @@ export class ResourceService {
     httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
     let resourceQueryUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/resource/?q=${query}`;
     return this.http.get<Resource[]>(resourceQueryUrl, httpOptions);
+  }
+
+  postSavedResources(query: String) {
+    let tokenArray = sessionStorage.token.split(':',2);
+    httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
+    let resourceQueryUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/user/id/resources`;
+    return this.http.post<any>(resourceQueryUrl, httpOptions);
   }
 
 }
