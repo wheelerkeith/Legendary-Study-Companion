@@ -29,7 +29,7 @@ export class LoginService {
 
     constructor(private http: HttpClient, private config: HttpConfigService) {}
 
-    postLoginUrl = `${this.config.endpoint}login`;
+    postLoginUrl = this.config.endpoint + `login`;
 
     // Set the login info
     postLoginInfo(login: Login): Observable<HttpResponse<any>> {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Login, LoginService, UserToken } from './login.service';
 import { HttpResponse } from '@angular/common/http';
+import { HttpConfigService } from 'src/app/http-config.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   resp: HttpResponse<any>;
   headers: string[];
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private config: HttpConfigService) { }
 
   ngOnInit(): void {
   }
@@ -27,11 +28,11 @@ export class LoginComponent implements OnInit {
       password: password
     };
 
-    console.log("inside attempt login");
+    // console.log("inside attempt login");
     this.loginService.postLoginInfo(this.login).subscribe(resp => {
       console.log(resp.headers.get('Authorization'));
       sessionStorage.setItem("token", resp.headers.get('Authorization'));
-      window.location.href="http://localhost:4200/app/search";
+      window.location.href = this.config.endpoint + "app/search";
     });
   }
 }
