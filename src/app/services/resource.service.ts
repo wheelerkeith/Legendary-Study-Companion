@@ -9,7 +9,7 @@ export const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'auth-key'         // we need to flesh this out
-  })
+  }),
 };
 
 export interface Resource {
@@ -25,12 +25,13 @@ export interface Resource {
 })
 export class ResourceService {
 
+  resources: Resource[];
 
   constructor(private http: HttpClient, private config: HttpConfigService) { }
 
-  getSearchedResources(query: String) {
+  getSearchedResources(query: String, filters: String) {
     httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
-    let resourceQueryUrl = this.config.endpoint + `resource/?q=${query}`;
+    let resourceQueryUrl = this.config.endpoint + `resource/?q=${query}&filters=${filters}`;
     return this.http.get<Resource[]>(resourceQueryUrl, httpOptions);
   }
 
@@ -39,6 +40,16 @@ export class ResourceService {
     httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
     let resourceQueryUrl = this.config.endpoint + `user/${tokenArray[0]}/resources`;
     return this.http.post<any>(resourceQueryUrl, resource, httpOptions);
+  }
+
+  deleteSavedResource(resource: Resource): Observable<Resource> {
+    let tokenArray = sessionStorage.token.split(':',2);
+    httpOptions.headers = httpOptions.headers.set('Authorization', `${sessionStorage.token}`);
+    let resourceQueryUrl = this.config.endpoint + `user/${tokenArray[0]}/resources`;
+    return this.http.request<any>('DELETE', resourceQueryUrl, { 
+      headers: httpOptions.headers, 
+      body: resource
+    });
   }
 
   postFlaggedResource(resource: Resource) {

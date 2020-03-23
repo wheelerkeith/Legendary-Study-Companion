@@ -30,7 +30,7 @@ export class ResourceComponent implements OnInit {
   }
 
   unsaveResource() {
-    this.resourceService.postSavedResource(this.resource)
+    this.resourceService.deleteSavedResource(this.resource)
       .subscribe((data)=>{
         this.resource.saved = false;
         this.resource.likeCount--;

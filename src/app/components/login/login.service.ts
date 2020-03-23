@@ -29,10 +29,10 @@ export class LoginService {
 
     constructor(private http: HttpClient, private config: HttpConfigService) {}
 
-    postLoginUrl = `${this.config.endpoint}login`;
+    postLoginUrl = this.config.endpoint + `login`;
 
     // Set the login info
     postLoginInfo(login: Login): Observable<HttpResponse<any>> {
-        return this.http.post<any>(this.postLoginUrl, login, { headers: httpOptions.headers, observe: 'response'});
+        return this.http.post<HttpResponse<any>>(this.postLoginUrl, login, { headers: httpOptions.headers, observe: 'response'});
     }
 }
