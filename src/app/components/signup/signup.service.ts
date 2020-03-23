@@ -3,6 +3,7 @@ import { Profile } from '../profile/profile.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpConfigService } from 'src/app/http-config.service';
 
 // https://angular.io/guide/http#adding-headers
 const httpOptions = {
@@ -17,11 +18,11 @@ const httpOptions = {
 })
 export class SignupService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private config: HttpConfigService) { }
 
   // POST - create a new user
   postNewUser(profile: Profile): Observable<Profile> {
-    let newUserPOSTUrl = `http://ec2-3-21-237-82.us-east-2.compute.amazonaws.com:8090/LegendaryStudyCompanionBackend-0.0.1-SNAPSHOT/user`;
+    let newUserPOSTUrl = `${this.config.endpoint}user`;
     return this.http.post<Profile>(newUserPOSTUrl, profile, httpOptions);
   }
 }
