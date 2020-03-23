@@ -2,11 +2,12 @@
     <a class="link-title" [href]="resource.url" target="_BLANK">{{resource.source}} - {{ resource.title }}</a>
     <div class="resource-right">
         <div class="likes">
-            <h4 class="like-count">{{ resource.likeCount }} Likes</h4>
-            <fa-icon [icon]="icon" class="star-icon"></fa-icon>
+            <h4 class="like-count">{{ resource.likeCount }} Like{{ resource.likeCount == 1 ? "" : "s" }}</h4>
         </div>
-        <button *ngIf="!resource.saved" class="btn btn-success" (click)="saveResource()">Save</button>
-        <button *ngIf="resource.saved" class="btn btn-success" (click)="unsaveResource()">Unsave</button>
-        <button class="btn btn-danger" (click)="flagResource()">Flag</button>
+        <div class="buttons">    
+            <button *ngIf="!resource.saved" class="btn btn-success" (click)="saveResource()">Save</button>
+            <button *ngIf="resource.saved" class="btn btn-info" (click)="unsaveResource()">Unsave</button>
+            <button class="btn btn-danger" (click)="flagResource()">Flag</button>
+        </div>
     </div>
 </div>

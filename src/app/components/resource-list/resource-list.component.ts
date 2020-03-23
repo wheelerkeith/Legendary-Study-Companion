@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Resource, ResourceService, httpOptions } from 'src/app/services/resource.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-resource-list',
@@ -10,16 +11,19 @@ export class ResourceListComponent implements OnInit {
 
   resources: Resource[];
 
-  constructor(private resourceService: ResourceService) { }
+  constructor(private resourceService: ResourceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.populateResources();
   }
 
   populateResources() {
-    this.resourceService.getSearchedResources("Java").subscribe((data: Resource[]) => {
-      this.resources = data;
-    })
+    this.route.queryParamMap.subscribe(params=> {
+      this.resourceService.getSearchedResources(params.get("q")).subscribe((data: Resource[]) => {
+        this.resources = data;
+      })
+    }
+    )
   }
 
 }
