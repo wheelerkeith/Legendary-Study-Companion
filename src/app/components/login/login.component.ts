@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Login, LoginService, UserToken } from './login.service';
 import { HttpResponse } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   resp: HttpResponse<any>;
   headers: string[];
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router, private rout: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.loginService.postLoginInfo(this.login).subscribe(resp => {
       console.log(resp.headers.get('Authorization'));
       sessionStorage.setItem("token", resp.headers.get('Authorization'));
-      window.location.href="/app/search";
+      this.router.navigate(['/app/search'], { relativeTo: this.rout});
     });
   }
 }

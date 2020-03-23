@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MycontentService, MyContent, Resource } from './mycontent.service';
-import { Subject } from 'rxjs';
+import { MycontentService, MyContent, Resource, Subject} from './mycontent.service';
 
 @Component({
   selector: 'app-mycontent',
@@ -9,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class MycontentComponent implements OnInit {
   myContent: MyContent;
-  likedSubjects: string[] = [];
+  likedSubjects: Subject[] = [];
 
 
   constructor(private myContentService: MycontentService) { }
@@ -32,12 +31,15 @@ export class MycontentComponent implements OnInit {
 
       for(let resource of this.myContent.likedResources) {
         for(let subject of this.likedSubjects) {
-          if(resource.subject.name == subject) {
+          if(resource.subject.name == subject.name) {
             unique = false;
           }
         }
         if (unique) {
-          this.likedSubjects[count] = resource.subject.name;
+          this.likedSubjects.push({
+            id: resource.subject.id,
+            name: resource.subject.name
+          });
           count ++;
         }
         unique = true;
