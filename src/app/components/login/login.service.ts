@@ -28,7 +28,7 @@ export class LoginService {
 
     constructor(private http: HttpClient) {}
 
-    postLoginUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/login`;
+    postLoginUrl = `http://ec2-3-21-237-82.us-east-2.compute.amazonaws.com:8090/LegendaryStudyCompanionBackend-0.0.1-SNAPSHOT/login`;
 
     // Set the login info
     postLoginInfo(login: Login): Observable<HttpResponse<any>> {

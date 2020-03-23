@@ -21,7 +21,7 @@ export class SignupService {
 
   // POST - create a new user
   postNewUser(profile: Profile): Observable<Profile> {
-    let newUserPOSTUrl = `http://localhost:8080/LegendaryStudyCompanionBackend/user`;
+    let newUserPOSTUrl = `http://ec2-3-21-237-82.us-east-2.compute.amazonaws.com:8090/LegendaryStudyCompanionBackend-0.0.1-SNAPSHOT/user`;
     return this.http.post<Profile>(newUserPOSTUrl, profile, httpOptions);
   }
 }
