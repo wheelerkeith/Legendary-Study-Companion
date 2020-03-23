@@ -5,6 +5,6 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <a class="dropdown-item" routerLink='profile'>Profile</a>
       <a *ngIf="tokenArray[1] == 1" class="dropdown-item" routerLink='moderate'>Moderate</a>
-      <a class="dropdown-item" [ngStyle]="{'color': 'red'}" href="#">Logout</a>
+      <a class="dropdown-item" [ngStyle]="{'color': 'red'}" (click)='logout()'>Logout</a>
     </div>
   </div>

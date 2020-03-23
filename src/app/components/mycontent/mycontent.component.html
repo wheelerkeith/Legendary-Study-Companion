@@ -17,18 +17,18 @@
                 <h6 class="card-subtitle mb-2 text-muted">click on one to see the resources</h6>
                 <div *ngIf="myContent" class="accordion" id="accordionStudySets">
                     <div *ngFor="let subject of likedSubjects">
-                        <button id="my-study-set-{{subject}}" class="mybutton btn-block" type="button" data-toggle="collapse" attr.data-target="#collapse{{subject}}" aria-expanded="false" attr.aria-controls="collapse{{subject}}">
-                            <div class="card-header" id="heading{{subject}}" style="padding: 25px;">
+                        <button id="my-study-set-{{subject.id}}" class="mybutton btn-block" type="button" data-toggle="collapse" attr.data-target="#collapse{{subject.id}}" aria-expanded="false" attr.aria-controls="collapse{{subject.id}}">
+                            <div class="card-header" id="heading{{subject.id}}" style="padding: 25px;">
                                 <h6 class="mb-0">
-                                        <strong>{{subject}}</strong>
+                                        <strong>{{subject.name}}</strong>
                                 </h6>
                             </div>
                         </button> <!--https://stackoverflow.com/questions/39161088/cant-bind-to-aria-valuenow-since-it-isnt-a-known-property-of-div-->
-                        <div id="collapse{{subject}}" class="collapse" attr.aria-labelledby="heading{{subject}}" data-parent="#accordionStudySets">
+                        <div id="collapse{{subject.id}}" class="collapse" attr.aria-labelledby="heading{{subject.id}}" data-parent="#accordionStudySets">
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
-                                    <li *ngFor="let resource of matchSubject(subject)" class="list-group-item id={{resource.resourceId}}">
-                                        <div *ngIf="subject == resource.subject.name" >
+                                    <li *ngFor="let resource of matchSubject(subject.name)" class="list-group-item id={{resource.resourceId}}">
+                                        <div *ngIf="subject.name == resource.subject.name" >
                                             <div class="row">
                                                 <div class="col-2">
                                                     <strong>{{resource.source}}</strong>

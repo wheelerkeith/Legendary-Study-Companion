@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Profile } from '../profile/profile.service';
 import { SignupService } from './signup.service';
 import { LoginComponent } from '../login/login.component';
@@ -12,6 +12,7 @@ import { LoginService } from '../login/login.service';
 export class SignupComponent implements OnInit {
   profile: Profile;
   loginComponenet: LoginComponent;
+  @Input() loginComponent: LoginComponent;
 
   constructor(private signupService: SignupService, private loginService: LoginService) { }
 
@@ -23,7 +24,6 @@ export class SignupComponent implements OnInit {
       password: "",
       role: 0
     };
-    this.loginComponenet = new LoginComponent(this.loginService);
   }
 
   newUser() {
