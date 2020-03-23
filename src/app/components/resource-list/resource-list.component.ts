@@ -11,6 +11,8 @@ export class ResourceListComponent implements OnInit {
 
   resources: Resource[];
 
+  resourceService1: ResourceService;
+
   constructor(private resourceService: ResourceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,8 +21,8 @@ export class ResourceListComponent implements OnInit {
 
   populateResources() {
     this.route.queryParamMap.subscribe(params=> {
-      var subscription = this.resourceService.getSearchedResources(params.get("q"), params.get("filters")).subscribe((data: Resource[]) => {
-        this.resourceService.resources = data;
+      var subscription = this.resourceService1.getSearchedResources(params.get("q"), params.get("filters")).subscribe((data: Resource[]) => {
+        this.resourceService1.resources = data;
         subscription.unsubscribe();
       })
     }
