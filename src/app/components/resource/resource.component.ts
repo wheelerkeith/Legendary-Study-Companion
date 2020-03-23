@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
-import { Resource } from 'src/app/services/resource.service';
+import { Resource, ResourceService } from 'src/app/services/resource.service';
 
 @Component({
   selector: 'app-resource',
@@ -16,33 +16,21 @@ export class ResourceComponent implements OnInit {
 
   icon: any;
 
-  constructor() { 
+  constructor(private resourceService: ResourceService) { 
   }
   
   ngOnInit(): void {
-    this.icon = this.liked ? solidStar : faStar;
-  }
-
-  likeResource(): void {
-
-    //TODO: Backend implementation for liking a resource
-
-    this.liked = !this.liked;
-    if (this.liked) {
-      this.icon = solidStar;
-    } else {
-      this.icon = faStar;
-    }
-
-  }
-
-  likeEnter(): void {
     this.icon = solidStar;
   }
 
-  likeLeave(): void {
-    if (!this.liked)
-      this.icon = faStar;
+  saveResource() {
+    this.resourceService.postSavedResource(this.resource);
+  }
+
+  flagResource() {
+    //TODO: Send resource to backend to add to blacklist table
+    //TODO: Change button to show that resource has been flagged
+    //  Maybe prompt user before flagging? Like "Are you sure you want to flag this resource? Y/N"
   }
 
 }
