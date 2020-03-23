@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpConfigService } from 'src/app/http-config.service';
 
 const httpOptions = {
     headers: new HttpHeaders ({
@@ -26,9 +27,9 @@ export interface UserToken {
 })
 export class LoginService {
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private config: HttpConfigService) {}
 
-    postLoginUrl = `http://ec2-3-21-237-82.us-east-2.compute.amazonaws.com:8090/LegendaryStudyCompanionBackend-0.0.1-SNAPSHOT/login`;
+    postLoginUrl = `${this.config.endpoint}login`;
 
     // Set the login info
     postLoginInfo(login: Login): Observable<HttpResponse<any>> {

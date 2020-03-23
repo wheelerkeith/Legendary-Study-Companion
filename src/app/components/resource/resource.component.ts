@@ -11,8 +11,6 @@ import { Resource, ResourceService } from 'src/app/services/resource.service';
 export class ResourceComponent implements OnInit {
 
   @Input() resource: Resource;
-  liked: Boolean = false;
-  like_count: Number = 0;
 
   icon: any;
 
@@ -24,7 +22,19 @@ export class ResourceComponent implements OnInit {
   }
 
   saveResource() {
-    this.resourceService.postSavedResource(this.resource);
+    this.resourceService.postSavedResource(this.resource)
+      .subscribe((data)=>{
+        this.resource.saved = true;
+        this.resource.likeCount++;
+      });
+  }
+
+  unsaveResource() {
+    this.resourceService.postSavedResource(this.resource)
+      .subscribe((data)=>{
+        this.resource.saved = false;
+        this.resource.likeCount--;
+      });
   }
 
   flagResource() {

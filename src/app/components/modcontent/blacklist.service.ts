@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Resource, Subject } from '../mycontent/mycontent.service';
 import { Observable } from 'rxjs';
+import { HttpConfigService } from 'src/app/http-config.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -32,10 +33,10 @@ export interface Blacklist {
 })
 export class BlacklistService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private config: HttpConfigService) { }
 
-  getAllBlacklistsUrl = `http://ec2-3-21-237-82.us-east-2.compute.amazonaws.com:8090/LegendaryStudyCompanionBackend-0.0.1-SNAPSHOT/blacklist`;
-  putUpdateStatusUrl = `http://ec2-3-21-237-82.us-east-2.compute.amazonaws.com:8090/LegendaryStudyCompanionBackend-0.0.1-SNAPSHOT/blacklist/`;
+  getAllBlacklistsUrl = this.config.endpoint + `blacklist`;
+  putUpdateStatusUrl = this.config.endpoint + `blacklist/`;
 
 
   // GET - get all blacklists
