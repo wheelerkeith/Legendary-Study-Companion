@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -9,13 +10,18 @@ export class MenuComponent implements OnInit {
 
   tokenArray: any[];
 
-  constructor() { }
+  constructor(private router: Router, private rout: ActivatedRoute) { }
 
   ngOnInit(): void {
     // this I am not sure will work. Will need to test once we have the loginpage set to block use.
     if(sessionStorage) {
       this.tokenArray = sessionStorage.token.split(':',2);
     }
+  }
+
+  logout() {
+    sessionStorage.removeItem("token");
+    this.router.navigate(['/'], { relativeTo: this.rout});
   }
 
 }
